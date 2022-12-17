@@ -8,10 +8,35 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and my score
-var myscore = "";
-const quesArray = [];
-const answerKey = [];
+const questarray = [
+  "Which of these choices are not a Javascript data type?",
+  "What year was Javascript launched",
+  "Who is the father of JavaScript?",
+  "What was the original name of Netscape's JavaScript engine?",
+];
 
-function startquiz() {}
+$("#questions").hide();
 
-function questiongenerater() {}
+$(document).ready(function () {
+  $("#start").click(function () {
+    $("#questions").toggle();
+    timerCountdown();
+    setInterval(timerCountdown, 1000);
+  });
+});
+
+const startingminutes = 1;
+let time = startingminutes * 60;
+
+const countdownEl = document.getElementById("countdown");
+console.log(countdownEl);
+
+function timerCountdown() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  seconds = seconds < 1 ? "0" + seconds : seconds;
+
+  countdownEl.innerHTML = `${minutes}: ${seconds}`;
+  time--;
+}

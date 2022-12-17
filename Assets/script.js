@@ -9,11 +9,14 @@
 // WHEN the game is over
 // THEN I can save my initials and my score
 const questarray = [
-  "Which of these choices are not a Javascript data type?",
-  "What year was Javascript launched",
-  "Who is the father of JavaScript?",
-  "What was the original name of Netscape's JavaScript engine?",
+  "Which of these choices are not a Javascript data type? <br> 1.Boolean 2.String 3.Numbers 4.Space ",
+  "What year was Javascript invented? <br> 1.1995 2.1900 3.2001 4.1988",
+  "Who is the father of JavaScript? <br> 1.Brendan Eich 2.Brendan Fraiser 3.Lebron James 4.Bill Gates",
+  "What was the original name of Netscape's JavaScript engine? <br> 1.Bananbox 2.Spidermonkey 3.Donkeypot 4.Netscape",
+  "Which of the following is not an operator? <br> 1.Addition 2.Division 3.Extraction 4.Assignment",
 ];
+
+const answerkey = [4, 1, 1, 2, 3];
 
 $("#questions").hide();
 
@@ -22,15 +25,13 @@ $(document).ready(function () {
     $("#questions").toggle();
     timerCountdown();
     setInterval(timerCountdown, 1000);
-    quest();
   });
 });
 
-const startingminutes = 1;
+const startingminutes = 5;
 let time = startingminutes * 60;
 
 const countdownEl = document.getElementById("countdown");
-console.log(countdownEl);
 
 function timerCountdown() {
   const minutes = Math.floor(time / 60);
@@ -40,20 +41,42 @@ function timerCountdown() {
 
   countdownEl.innerHTML = `${minutes}: ${seconds}`;
   time--;
-
-  if (seconds === 0) {
-    clearInterval(setInterval);
-  }
 }
-
-function quest() {
-  for (var i = 0, l = questarray.length; i < l; i++) {
-    if ((questarray[0] = i)) {
-      $("#questions").append(index, Value);
-    }
-    console.log(i);
+document
+  .getElementById("questions")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+var i = 0;
+document.getElementById("quiz").innerHTML = questarray[i];
+function cycle() {
+  var inputVal = document.querySelectorAll("input")[0].value;
+  while (inputVal == answerkey[i]) {
+    ++i;
+    document.getElementById("quiz").innerHTML = questarray[i];
+  }
+  if (i == 5) {
+    time = 0;
+    $("#countdown").hide();
+    document.getElementById("quiz").innerHTML = "GOOD WORK!";
+    return false;
   }
 }
 
 // $.each(questarray, function (i, value) {
 // $("#questions").append(i + ":" + value);
+
+// added color change text for styling purposes
+// const checkFilled = (input) => {
+//   if (!input.value) {
+//     input.style.backgroundColor = "yellow";
+//   } else {
+//     input.style.backgroundColor = null;
+//   }
+// };
+
+// const input = document.querySelector("input");
+// input.onchange = (e) => {
+//   checkFilled(e.target);
+// };
+// checkFilled(input);

@@ -12,15 +12,16 @@
     <header>
       <h1>Test Your Knowledge!</h1>
       <main>Questions</main>
-      <form id="questions" onsubmit="return mySubmitHandler()">
+      <form id="questions" onsubmit="cycle()">
         <fieldset>
-          <legend></legend>
+          <legend id="quiz"></legend>
           <p id="countdown">01:00</p>
           <div>
-            <button type="submit" id="choice1">1. Boolean</button>
-            <button type="submit" id="choice2">2. String</button>
-            <button type="submit" id="choice3">3. Number</button>
-            <button type="submit" id="choice3">4. Obstacles</button>
+            <label for="fname">Answer:</label><br>
+            <input id="choice" placeholder="#numbers-only" type="number"></input>
+            <!-- <button type="submit" id="choice2">2. String</button> -->
+            <!-- <button type="submit" id="choice3">3. Number</button> -->
+            <!-- <button type="submit" id="choice3">4. Obstacles</button> -->
           </div>
         </fieldset>
       </form>

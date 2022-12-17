@@ -22,6 +22,7 @@ $(document).ready(function () {
     $("#questions").toggle();
     timerCountdown();
     setInterval(timerCountdown, 1000);
+    quest();
   });
 });
 
@@ -39,4 +40,20 @@ function timerCountdown() {
 
   countdownEl.innerHTML = `${minutes}: ${seconds}`;
   time--;
+
+  if (seconds === 0) {
+    clearInterval(setInterval);
+  }
 }
+
+function quest() {
+  for (var i = 0, l = questarray.length; i < l; i++) {
+    if ((questarray[0] = i)) {
+      $("#questions").append(index, Value);
+    }
+    console.log(i);
+  }
+}
+
+// $.each(questarray, function (i, value) {
+// $("#questions").append(i + ":" + value);

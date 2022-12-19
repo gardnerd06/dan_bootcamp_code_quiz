@@ -11,25 +11,31 @@
   <body>
     <header>
       <h1>Test Your Knowledge!</h1>
-      <main>Questions</main>
+    </header>
       <form id="questions" onsubmit="cycle()">
         <fieldset>
           <legend id="quiz"></legend>
-          <p id="countdown">01:00</p>
-          <div>
-            <label for="fname">Answer:</label><br>
-            <input id="choice" placeholder="#numbers-only" type="number"></input>
-            <!-- <button type="submit" id="choice2">2. String</button> -->
-            <!-- <button type="submit" id="choice3">3. Number</button> -->
+          <p id="countdown"></p>
+          <div id="input">
+            <label id="label" for="fname">TRUE OR FALSE: ALL CAPS</label><br />
+            <input id="choice" placeholder="CAPS LOCK" type="text" size="10" required></input>
+            <!-- <button type="button" id="choice1">start</button> -->
+            <!-- <button type="button" id="choice2">FALSE</button> -->
             <!-- <button type="submit" id="choice3">4. Obstacles</button> -->
           </div>
         </fieldset>
       </form>
-    </header>
+    <div id="btn">
+    <button id="start">QUIZ</button>
+    </div>
+    
+    <div>Your Results</div>
 
-    <button id="start">START</button>
-    <div>Timer</div>
-    <footer>Property of Gardnerd06</footer>
+    <footer>
+
+
+      <h2>Property of Gardnerd06</h2>
+    </footer>
 
     <script
       src="https://code.jquery.com/jquery-3.6.2.min.js"

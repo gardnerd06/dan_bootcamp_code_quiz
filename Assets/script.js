@@ -10,10 +10,9 @@
 // THEN I can save my initials and my score
 const startingminutes = 3;
 let time = startingminutes * 60;
-
+var username = document.querySelectorAll("user");
 const countdownEl = document.getElementById("countdown");
 var i = 0;
-var w = 0;
 
 $("#questions").hide();
 
@@ -25,9 +24,19 @@ const questarray = [
   "Assignment is not an operator of Javascript.",
   "Brendan Eich is the father of JavaScript.",
   "Javascript only works on Windows computers.",
+  "ECMA is the name of the group that publishes JS.",
 ];
 
-const answerkey = ["TRUE", "FALSE", "TRUE", "TRUE", "FALSE", "TRUE", "FALSE"];
+const answerkey = [
+  "TRUE",
+  "FALSE",
+  "TRUE",
+  "TRUE",
+  "FALSE",
+  "TRUE",
+  "FALSE",
+  "True",
+];
 
 document.getElementById("quiz").innerHTML = questarray[i];
 
@@ -64,27 +73,24 @@ document
 
 function cycle() {
   var inputVal = document.querySelectorAll("input")[0].value;
-
+  var w = 0;
   console.log(inputVal);
   if (inputVal === answerkey[i]) {
-    i++;
-    console.log(i);
+    ++i;
     document.getElementById("quiz").innerHTML = questarray[i];
-  } else if (i >= 5) {
+  } else if (i > 5) {
     $("#countdown").hide();
     $("label").hide();
     document.getElementById("quiz").innerHTML = "PLEASE ENTER YOUR INITIALS!";
-    var score = "";
+    var totalscore = w + "/6";
+    console.log(w);
     time = 00;
+    $("#choice").hide();
   } else {
     alert("You are incorrect! Try again!");
-    score = ++w;
-    var total = -w * 5;
-    console.log(score);
     time -= 30;
     ++i;
     document.getElementById("quiz").innerHTML = questarray[i];
-    var totalscore = total + 100;
   }
 }
 
@@ -102,3 +108,8 @@ input.onchange = (e) => {
   checkFilled(e.target);
 };
 checkFilled(input);
+
+document.getElementById("user").addEventListener("submit", function (event) {
+  event.preventDefault();
+});
+console.log(username);

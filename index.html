@@ -19,9 +19,6 @@
           <div id="input">
             <label id="label" for="fname">TRUE OR FALSE: ALL CAPS</label><br />
             <input id="choice" placeholder="CAPS LOCK" type="text" size="10" required></input>
-            <!-- <button type="button" id="choice1">start</button> -->
-            <!-- <button type="button" id="choice2">FALSE</button> -->
-            <!-- <button type="submit" id="choice3">4. Obstacles</button> -->
           </div>
         </fieldset>
       </form>
@@ -29,12 +26,20 @@
     <button id="start">QUIZ</button>
     </div>
     
-    <form>Your Results
-    <input id="user" placeholder="Your Name" type="text">
-  </form>
-    <footer>
+    <div id="style">
+    <form id="user" onsubmit="store()">Your Results
+      <input id="player"  placeholder="Your Name" type="text">
+    </form>
+    <table>
+      <ol>
+        <li id="leader"></li> 
+        <li id="final"></li>
+      </ol>
+    </table>
+  </div>
+    
 
-
+<footer>
       <h2>Property of Gardnerd06</h2>
     </footer>
 

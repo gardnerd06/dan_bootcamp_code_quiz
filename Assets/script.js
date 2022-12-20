@@ -70,10 +70,16 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
   });
+document.getElementById("user").addEventListener("submit", function (event) {
+  event.preventDefault();
+  retrieve();
+});
 
 function cycle() {
   var inputVal = document.querySelectorAll("input")[0].value;
   var w = 0;
+  var c = 0;
+  var score = "";
   console.log(inputVal);
   if (inputVal === answerkey[i]) {
     ++i;
@@ -82,15 +88,17 @@ function cycle() {
     $("#countdown").hide();
     $("label").hide();
     document.getElementById("quiz").innerHTML = "PLEASE ENTER YOUR INITIALS!";
-    var totalscore = w + "/6";
-    console.log(w);
     time = 00;
+    localStorage.setItem("totalques", i);
     $("#choice").hide();
   } else {
+    var w = 0;
     alert("You are incorrect! Try again!");
+    ++w;
     time -= 30;
     ++i;
     document.getElementById("quiz").innerHTML = questarray[i];
+    localStorage.setItem("wrong", w);
   }
 }
 
@@ -109,7 +117,19 @@ input.onchange = (e) => {
 };
 checkFilled(input);
 
-document.getElementById("user").addEventListener("submit", function (event) {
-  event.preventDefault();
-});
-console.log(username);
+function store() {
+  var name = document.getElementById("player").value;
+  localStorage.setItem("username", name);
+  console.log(name);
+}
+
+function retrieve() {
+  const leader = localStorage.getItem("username");
+  const quez = localStorage.getItem("totalques");
+  const incorrect = localStorage.getItem("wrong");
+  var final = !incorrect - -6 + "OUT OF" + quez;
+  console.log(incorrect);
+  console.log(final);
+  document.getElementById("leader").innerHTML = leader;
+  document.getElementById("final").innerHTML = final;
+}

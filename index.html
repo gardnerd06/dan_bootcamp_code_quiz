@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <!-- added reset sheet to ensure app looks the same across browsers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Assets/reset.css" />
-    <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="stylesheet" href="./Assets/css/reset.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
     <title>Code Quiz</title>
   </head>
   <body>
+    <!-- added ids to elements to style and apply functionality and attributes as needed -->
     <header>
       <h1>Test Your Knowledge!</h1>
     </header>
@@ -17,6 +19,7 @@
           <legend id="quiz"></legend>
           <p id="countdown"></p>
           <div id="input">
+            <!-- added placeholders and attributes to alter functionality of elements -->
             <label id="label" for="fname">TRUE OR FALSE: ALL CAPS</label><br />
             <input id="choice" placeholder="CAPS LOCK" type="text" size="10" required></input>
           </div>
@@ -30,6 +33,7 @@
     <form id="user" onsubmit="store()">Your Results
       <input id="player"  placeholder="Your Name" type="text">
     </form>
+    <!-- added area to display items pulled from local storage -->
     <table>
       <ol>
         <li id="leader"></li> 
@@ -40,14 +44,16 @@
     
 
 <footer>
+  
       <h2>Property of Gardnerd06</h2>
     </footer>
-
+<!-- added jquery for better interactivity with site
+ -->
     <script
       src="https://code.jquery.com/jquery-3.6.2.min.js"
       integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
       crossorigin="anonymous"
     ></script>
-    <script src="./Assets/script.js"></script>
+    <script src="./Assets/Js/script.js"></script>
   </body>
 </html>

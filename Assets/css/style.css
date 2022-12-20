@@ -6,7 +6,7 @@
   margin: 0px;
   padding: 0px;
 }
-
+/* set root properties to persist throughout page */
 body {
   border: black solid 4px;
   background-color: blanchedalmond;
@@ -23,7 +23,7 @@ footer {
   color: aliceblue;
   font-size: 1.5em;
   width: 100%;
-  height: 100px;
+  height: 60px;
   padding-top: 10px;
   position: absolute;
   bottom: 0;
@@ -44,6 +44,7 @@ legend {
   font-weight: bold;
   font-variant-caps: small-caps;
 }
+/* added shadowing effects to certain page elements */
 p {
   background-color: aliceblue;
   display: flex;
@@ -63,6 +64,12 @@ h1 {
   margin: 5px;
   color: rgb(100, 46, 3);
   text-shadow: 5px black;
+}
+#style {
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 10px;
 }
 #input {
   font-size: 2em;
@@ -93,7 +100,7 @@ h1 {
   cursor: pointer;
   margin: 5px;
 }
-
+/* added advanced css for better UI */
 #start:hover {
   background-color: #f4511e; /* orange */
   color: white;
@@ -120,6 +127,7 @@ fieldset {
   border-color: rgb(192, 192, 192);
   border-image: initial;
 }
+/* added media queries to ensure functionality on multiple screen sizes */
 
 @media screen and (max-width: 980px) {
   #btn {
